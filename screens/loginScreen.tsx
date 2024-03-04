@@ -19,17 +19,29 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
   const [password, setPassword] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
-  const handleLogin = async () => {
-    // Handle login logic
-    // Once login is successful, call the callback function provided by HomeScreen
-    // to update the login status
-    try {
-      // Your login logic here
-      await AsyncStorage.setItem("loggedInUserEmail", email);
-      onLogin(); // Call the callback function
-      setModalVisible(false);
-    } catch (error) {
-      console.error('Error logging in: ', error);
+  const sampleLoginData = [
+    { email: "test", password: "test" },
+    { email: "user2@example.com", password: "password2" },
+    { email: "user3@example.com", password: "password3" },
+  ];
+  
+   const handleLogin = async () => {
+    // Check if the entered email and password match any sample login data
+    const matchedUser = sampleLoginData.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (matchedUser) {
+      try {
+        // Your login logic here
+        await AsyncStorage.setItem("loggedInUserEmail", email);
+        onLogin(); // Call the callback function
+        setModalVisible(false);
+      } catch (error) {
+        console.error('Error logging in: ', error);
+      }
+    } else {
+      // If no matching user found, display an alert
+      alert("Invalid email or password");
     }
   };
 
