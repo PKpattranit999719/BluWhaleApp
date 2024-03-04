@@ -12,6 +12,11 @@ function SearchScreen({ navigation }) {
         title="โรแมนซ์แฟนตาซี"
         onPress={() => navigation.navigate('RomanceFantasy')}
       />
+
+      <Button
+      title="โรแมนซ์"
+      onPress={() => navigation.navigate('Romance')}
+      />
     </View>
   );
 }
@@ -27,11 +32,23 @@ function RomanceFantasy({ navigation }) {
   );
 }
 
+function Romance({ navigation }) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Button
+          title="Go back"
+          onPress={() => navigation.goBack()}
+        />
+      </View>
+    );
+  }
+
 function MyStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="search" component={SearchScreen} />
       <Stack.Screen name="RomanceFantasy" component={RomanceFantasy} />
+      <Stack.Screen name="Romance" component={Romance} />
     </Stack.Navigator>
   );
 }
