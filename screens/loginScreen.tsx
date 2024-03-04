@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// LoginScreen.tsx
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,111 +7,82 @@ import {
   TouchableOpacity,
   StyleSheet,
   Modal,
-  Alert,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import HomeScreen from "./homeScreen"; // Import HomeScreen component
-import { Image } from "react-native";
 
-// Sample login data
-const sampleLoginData = [
-  { email: "test", password: "test" },
-  { email: "user2@example.com", password: "password2" },
-  { email: "user3@example.com", password: "password3" },
-];
+interface LoginScreenProps {
+  onLogin: () => void;
+}
 
-const LoginScreen: React.FC = () => {
+const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchLoggedInUser() {
-      const userEmail = await AsyncStorage.getItem("loggedInUserEmail");
-      setLoggedInUser(userEmail);
-    }
-    fetchLoggedInUser();
-  }, []);
 
   const handleLogin = async () => {
-    // Check if the entered email and password match any sample login data
-    const matchedUser = sampleLoginData.find(
-      (user) => user.email === email && user.password === password
-    );
-    if (matchedUser) {
-      try {
-        // Save the logged-in user's email in AsyncStorage
-        await AsyncStorage.setItem("loggedInUserEmail", email);
-        // Set the logged-in user
-        setLoggedInUser(email);
-        // Close the modal after login
-        setModalVisible(false);
-      } catch (error) {
-        console.error("Error saving login data: ", error);
-      }
-    } else {
-      // If no matching user found, display an alert
-      console.log("Invalid email or password"); // Add this line to log the error
-      alert("Invalid email or password");
+    // Handle login logic
+    // Once login is successful, call the callback function provided by HomeScreen
+    // to update the login status
+    try {
+      // Your login logic here
+      await AsyncStorage.setItem("loggedInUserEmail", email);
+      onLogin(); // Call the callback function
+      setModalVisible(false);
+    } catch (error) {
+      console.error('Error logging in: ', error);
     }
   };
 
   return (
     <View style={styles.container}>
-      {loggedInUser ? (
-        <HomeScreen username={loggedInUser} /> 
-      ) : (
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => setModalVisible(true)}
-        >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-      )}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.title}>Login</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              value={email}
-              onChangeText={setEmail}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              secureTextEntry
-              value={password}
-              onChangeText={setPassword}
-            />
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                  setEmail("");
-                  setPassword("");
-                  setModalVisible(false);
-                }}
-              >
-                <Text style={styles.buttonText}>Close</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Login</Text>
-              </TouchableOpacity>
-            </View>
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => setModalVisible(true)}
+    >
+      <Text style={styles.buttonText}>:~Login~:</Text>
+    </TouchableOpacity>
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => setModalVisible(false)}
+    >
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContent}>
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            value={email}
+            onChangeText={setEmail}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                setEmail("");
+                setPassword("");
+                setModalVisible(false);
+              }}
+            >
+              <Text style={styles.buttonText}>Close</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
+              <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
           </View>
         </View>
-      </Modal>
-    </View>
+      </View>
+    </Modal>
+  </View>
   );
 };
 
