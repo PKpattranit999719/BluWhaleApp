@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Modal, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Modal} from 'react-native';
 
 const RegisterScreen: React.FC = () => {
   const [username, setUsername] = useState('');
