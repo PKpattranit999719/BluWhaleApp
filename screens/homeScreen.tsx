@@ -1,13 +1,15 @@
-// HomeScreen.tsx
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, Button, TouchableOpacity } from "react-native";
-import { Image } from "expo-image";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, Text, TouchableOpacity, Image, Alert } from "react-native";
+import { useAuth } from "../authContext"; 
+import { sampleUsers } from "../sampleData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import LoginScreen from "./loginScreen";
+import LoginModal from "../modal/loginModal";
 
 const HomeScreen: React.FC = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  const { loggedIn, username, login} = useAuth(); 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState(""); 
 
   useEffect(() => {
     // Check if user is logged in
@@ -18,79 +20,71 @@ const HomeScreen: React.FC = () => {
     try {
       const loggedInUserEmail = await AsyncStorage.getItem("loggedInUserEmail");
       if (loggedInUserEmail) {
-        // If user is logged in, set loggedIn to true and store the username
-        setLoggedIn(true);
-        setUsername(loggedInUserEmail);
+        login(loggedInUserEmail);
       }
     } catch (error) {
       console.error("Error checking login status: ", error);
     }
   };
-  const handleLogout = async () => {
-    try {
-      // Clear the logged-in user's session data
-      await AsyncStorage.removeItem('loggedInUserEmail');
-      // Reset state and update UI
-      setLoggedIn(false);
-      setUsername('');
-    } catch (error) {
-      console.error('Error logging out: ', error);
+
+  const handleLogin = () => {
+    setModalVisible(true);
+  };
+
+  const handleLoginSubmit = async (email, password) => {
+    if (!email || !password) {
+      Alert.alert('Please enter your email and password.');
+      return;
+    }
+  
+    const user = sampleUsers.find(user => user.email === email && user.password === password);
+    
+    if (user) {
+      setModalVisible(false);
+      login(user.username); 
+      try {
+        await AsyncStorage.setItem('loggedInUserEmail', email);
+      } catch (error) {
+        console.error('Error storing logged-in user email: ', error);
+      }
+    } else {
+      Alert.alert('Wrong Email Or Password.');
     }
   };
 
-
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#2D466B",
-      }}
-    >
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#2D466B" }}>
       {loggedIn ? (
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#2D466B",
-          }}
-        >
-          <Image
-            source={require("../assets/bluWhale_LOGO.png")}
-            style={{ width: 350, height: 350 }}
-          />
-          <Text style={{ color: "white" }}>Welcome, {username}</Text>
-          <TouchableOpacity style={styles.button} onPress={handleLogout}>
-              <Text style={styles.buttonText}>:~Logout~:</Text>
-            </TouchableOpacity>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center"}}>
+          <Image source={require("../assets/bluWhale_LOGO.png")} style={{ width: 350, height: 350 }} />
+          <Text style={{ color: "white", fontSize: 20}}>Welcome, {username}</Text>
         </View>
       ) : (
-        <View>
-          <Image
-            source={require("../assets/bluWhale_LOGO.png")}
-            style={{ width: 350, height: 350 }}
-          />
-          <LoginScreen onLogin={() => checkLoginStatus()} />
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center"}}>
+          <Image source={require("../assets/bluWhale_LOGO.png")} style={{ width: 350, height: 350 }} />
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
+            <Text style={styles.buttonText}>:~Login~:</Text>
+          </TouchableOpacity>
         </View>
       )}
+      {/* Login Modal */}
+      <LoginModal visible={modalVisible} onClose={() => setModalVisible(false)} onLogin={handleLoginSubmit} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#1e77f4",
+    backgroundColor: '#0b114f',
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 25,
-    marginTop: 10,
+    marginTop: 20,
   },
   buttonText: {
-    color: "white",
-    fontSize: 16,
-    textAlign: "center",
+    color: 'white',
+    fontSize: 17,
+    textAlign: 'center',
   },
 });
 

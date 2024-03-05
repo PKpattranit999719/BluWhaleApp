@@ -1,10 +1,12 @@
 import React from "react";
 import { Button, Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { useAuth } from "../authContext";
 
 const Stack = createStackNavigator();
 
 function SearchScreen({ navigation }) {
+  const { username } = useAuth(); 
   return (
     <View
       style={{
