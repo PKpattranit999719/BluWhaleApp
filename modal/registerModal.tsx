@@ -64,9 +64,9 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose, onRegis
       transparent={true}
       onRequestClose={onClose}
     >
-      <View style={styles.centeredView}>
-        <View style={styles.modalView}>
-          <Text style={styles.modalText}>Register</Text>
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContent}>
+          <Text style={styles.title}>Register</Text>
           <TextInput
             style={styles.input}
             placeholder="Username"
@@ -116,43 +116,35 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose, onRegis
 };
 
 const styles = StyleSheet.create({
-  centeredView: {
+  modalContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
-  modalView: {
-    margin: 20,
+  modalContent: {
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
+    borderRadius: 10,
+    padding: 20,
     elevation: 5,
+    width: 300,
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
-    fontSize: 20,
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
   },
   input: {
+    width: "100%",
     height: 40,
-    width: 200,
-    marginBottom: 15,
-    borderColor: "gray",
     borderWidth: 1,
+    borderColor: "#ccc",
     borderRadius: 5,
+    marginBottom: 10,
     paddingHorizontal: 10,
   },
   dateContainer: {
     flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
     marginBottom: 10,
   },
