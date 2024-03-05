@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Image, Alert } from "react-native";
-import { useAuth } from "../authContext"; 
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from "react-native";
+import { useAuth } from "../authContext";
+import RegisterModal from "../modal/registerModal"; // Import the RegisterModal component
 import { sampleUsers } from "../sampleData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoginModal from "../modal/loginModal";
 
 const HomeScreen: React.FC = () => {
-  const { loggedIn, username, login} = useAuth(); 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [email, setEmail] = useState(""); 
-  const [password, setPassword] = useState(""); 
+  const { loggedIn, username, login, register } = useAuth();
+  const [loginModalVisible, setLoginModalVisible] = useState(false);
+  const [registerModalVisible, setRegisterModalVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [birthdate, setBirthdate] = useState(new Date()); // Assuming you have a way to capture birthdate
 
   useEffect(() => {
     // Check if user is logged in
@@ -28,63 +38,108 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleLogin = () => {
-    setModalVisible(true);
+    setLoginModalVisible(true);
   };
 
   const handleLoginSubmit = async (email, password) => {
     if (!email || !password) {
-      Alert.alert('Please enter your email and password.');
+      Alert.alert("Please enter your email and password.");
       return;
     }
-  
-    const user = sampleUsers.find(user => user.email === email && user.password === password);
-    
+
+    const user = sampleUsers.find(
+      (user) => user.email === email && user.password === password
+    );
+
     if (user) {
-      setModalVisible(false);
-      login(user.username); 
+      setLoginModalVisible(false);
+      login(user.username);
       try {
-        await AsyncStorage.setItem('loggedInUserEmail', email);
+        await AsyncStorage.setItem("loggedInUserEmail", email);
       } catch (error) {
-        console.error('Error storing logged-in user email: ', error);
+        console.error("Error storing logged-in user email: ", error);
       }
     } else {
-      Alert.alert('Wrong Email Or Password.');
+      Alert.alert("Wrong Email Or Password.");
     }
   };
 
+  const handleRegister = () => {
+    setRegisterModalVisible(true); // Open the registration modal
+  };
+
+  const handleRegisterSubmit = (username, email, password, birthdate) => {
+    // Perform registration
+    register(username, email, birthdate, password);
+    setRegisterModalVisible(false); // Close the registration modal
+    Alert.alert("Register Successfully.");
+  };
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#2D466B" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#2D466B",
+      }}
+    >
       {loggedIn ? (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center"}}>
-          <Image source={require("../assets/bluWhale_LOGO.png")} style={{ width: 350, height: 350 }} />
-          <Text style={{ color: "white", fontSize: 20}}>Welcome, {username}</Text>
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Image
+            source={require("../assets/bluWhale_LOGO.png")}
+            style={{ width: 350, height: 350 }}
+          />
+          <Text style={{ color: "white", fontSize: 20 }}>
+            Welcome, {username}
+          </Text>
         </View>
       ) : (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center"}}>
-          <Image source={require("../assets/bluWhale_LOGO.png")} style={{ width: 350, height: 350 }} />
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Image
+            source={require("../assets/bluWhale_LOGO.png")}
+            style={{ width: 350, height: 350 }}
+          />
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>:~Login~:</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleRegister}>
+            <Text style={styles.buttonText}>:~Register~:</Text>
           </TouchableOpacity>
         </View>
       )}
       {/* Login Modal */}
-      <LoginModal visible={modalVisible} onClose={() => setModalVisible(false)} onLogin={handleLoginSubmit} />
+      <LoginModal
+        visible={loginModalVisible}
+        onClose={() => setLoginModalVisible(false)}
+        onLogin={handleLoginSubmit}
+      />
+      {/* Register Modal */}
+      <RegisterModal
+        visible={registerModalVisible}
+        onClose={() => setRegisterModalVisible(false)}
+        onRegister={handleRegisterSubmit}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#0b114f',
+    backgroundColor: "#0b114f",
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 25,
     marginTop: 20,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 17,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 

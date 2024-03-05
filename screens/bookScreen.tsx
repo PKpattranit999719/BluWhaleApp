@@ -36,17 +36,23 @@ const BookScreen: React.FC = () => {
         {username ? `${username}'s Books:` : "Please log in to view books"}
       </Text>
       {loggedIn ? (
-        <FlatList
-          data={currentUser?.books || []} // Display books for the current user
-          renderItem={({ item }) => (
-            <View>
-              <Text style={{ fontSize: 16, color: "white" }}>
-                {item.title} by {item.author}
-              </Text>
-            </View>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
+        currentUser?.books && currentUser?.books.length > 0 ? ( // Check if the user has books
+          <FlatList
+            data={currentUser.books} // Display books for the current user
+            renderItem={({ item }) => (
+              <View>
+                <Text style={{ fontSize: 16, color: "white" }}>
+                  {item.title} by {item.author}
+                </Text>
+              </View>
+            )}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        ) : (
+          <Text style={{ fontSize: 16, color: "white" }}>
+            You don't have any book here
+          </Text>
+        )
       ) : (
         <TouchableOpacity style={styles.button} onPress={handleLoginPress}>
           <Text style={styles.buttonText}>:~Login~:</Text>
