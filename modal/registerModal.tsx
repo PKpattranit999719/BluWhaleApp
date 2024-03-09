@@ -1,15 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { Modal, View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Modal,
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { MaterialIcons } from '@expo/vector-icons'; // Importing MaterialIcons from expo/vector-icons
+import { MaterialIcons } from "@expo/vector-icons"; // Importing MaterialIcons from expo/vector-icons
 
 type RegisterModalProps = {
   visible: boolean;
   onClose: () => void;
-  onRegister: (username: string, email: string, password: string, birthdate: Date) => void;
+  onRegister: (
+    username: string,
+    email: string,
+    password: string,
+    birthdate: Date
+  ) => void;
 };
 
-const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose, onRegister }) => {
+const RegisterModal: React.FC<RegisterModalProps> = ({
+  visible,
+  onClose,
+  onRegister,
+}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,28 +41,31 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose, onRegis
       setBirthdate(new Date());
     }
   }, [visible]);
-  
+
   const handleRegister = () => {
     // Check if any input field is empty or missing
     if (!username || !email || !password || !birthdate) {
       alert("Please fill in all fields.");
       return;
     }
-  
+
     // Calculate age based on birthdate
     const today = new Date();
     const age = today.getFullYear() - birthdate.getFullYear();
     const monthDiff = today.getMonth() - birthdate.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthdate.getDate())
+    ) {
       age--;
     }
-  
+
     // Check if age is below 10
     if (age < 10) {
       alert("You must be at least 10 years old to register.");
       return;
     }
-  
+
     // Perform registration
     onRegister(username, email, password, birthdate);
   };
@@ -86,9 +106,17 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose, onRegis
             value={password}
             secureTextEntry={true}
           />
+          <View>
+            <Text style={styles.birthText}>Birth Date</Text>
+          </View>
           <View style={styles.dateContainer}>
-            <Text style={styles.selectedDateText}>{birthdate.toLocaleDateString()}</Text>
-            <TouchableOpacity style={styles.datePickerButton} onPress={() => setShowDatePicker(true)}>
+            <Text style={styles.selectedDateText}>
+              {birthdate.toLocaleDateString()}
+            </Text>
+            <TouchableOpacity
+              style={styles.datePickerButton}
+              onPress={() => setShowDatePicker(true)}
+            >
               <MaterialIcons name="date-range" size={24} color="white" />
             </TouchableOpacity>
           </View>
@@ -97,12 +125,15 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose, onRegis
               value={birthdate}
               mode="date"
               display="default"
-              maximumDate={new Date()} // Set maximum date to the current date
+              maximumDate={new Date()} 
               onChange={handleDateChange}
             />
           )}
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={[styles.button, styles.button]} onPress={onClose}>
+            <TouchableOpacity
+              style={[styles.button, styles.button]}
+              onPress={onClose}
+            >
               <Text style={styles.buttonText}>Close</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={handleRegister}>
@@ -149,10 +180,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   datePickerButton: {
-    backgroundColor: '#0b114f',
+    backgroundColor: "#0b114f",
     borderRadius: 20,
     padding: 10,
     marginLeft: 10,
+  },
+  birthText: {
+    fontSize: 17.5, 
   },
   selectedDateText: {
     fontSize: 17,
@@ -162,16 +196,16 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: '#0b114f',
+    backgroundColor: "#0b114f",
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 25,
     marginHorizontal: 5,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 17,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 

@@ -17,9 +17,6 @@ const HomeScreen: React.FC = () => {
   const { loggedIn, username, login, register } = useAuth();
   const [loginModalVisible, setLoginModalVisible] = useState(false);
   const [registerModalVisible, setRegisterModalVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [birthdate, setBirthdate] = useState(new Date()); // Assuming you have a way to capture birthdate
 
   useEffect(() => {
     // Check if user is logged in

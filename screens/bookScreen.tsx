@@ -6,6 +6,7 @@ import {
   View,
   Button,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { sampleUsers } from "../sampleData";
 import { useAuth } from "../authContext";
@@ -44,6 +45,13 @@ const BookScreen: React.FC = () => {
                 <Text style={{ fontSize: 16, color: "white" }}>
                   {item.title} by {item.author}
                 </Text>
+                <Text style={{ fontSize: 16, color: "white" }}>{item.catagory}</Text>
+                <Text style={{ fontSize: 16, color: "white" }}>{item.description}</Text>
+                  
+                <Image
+                  source={item.image}
+                  style={{ width: 80, height: 80 }}
+                />
               </View>
             )}
             keyExtractor={(item, index) => index.toString()}
