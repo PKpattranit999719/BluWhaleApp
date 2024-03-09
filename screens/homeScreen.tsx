@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { useAuth } from "../authContext";
-import RegisterModal from "../modal/registerModal"; // Import the RegisterModal component
+import RegisterModal from "../modal/registerModal"; 
 import { sampleUsers } from "../sampleData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoginModal from "../modal/loginModal";
@@ -19,7 +19,6 @@ const HomeScreen: React.FC = () => {
   const [registerModalVisible, setRegisterModalVisible] = useState(false);
 
   useEffect(() => {
-    // Check if user is logged in
     checkLoginStatus();
   }, []);
 
@@ -62,13 +61,13 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleRegister = () => {
-    setRegisterModalVisible(true); // Open the registration modal
+    setRegisterModalVisible(true); 
   };
 
   const handleRegisterSubmit = (username, email, password, birthdate) => {
     // Perform registration
     register(username, email, birthdate, password);
-    setRegisterModalVisible(false); // Close the registration modal
+    setRegisterModalVisible(false);
     Alert.alert("Register Successfully.");
   };
 
@@ -109,7 +108,6 @@ const HomeScreen: React.FC = () => {
           </TouchableOpacity>
         </View>
       )}
-      {/* Login Modal */}
       <LoginModal
         visible={loginModalVisible}
         onClose={() => setLoginModalVisible(false)}

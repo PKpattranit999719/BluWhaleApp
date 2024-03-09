@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   FlatList,
@@ -13,9 +13,8 @@ import { useAuth } from "../authContext";
 import { useNavigation } from "@react-navigation/native";
 
 const BookScreen: React.FC = () => {
-  const { username, loggedIn } = useAuth(); // Get the currently logged-in user's username and login state
+  const { username, loggedIn } = useAuth();
   const navigation = useNavigation();
-  // Find the user object based on the username
   const currentUser = sampleUsers.find((user) => user.username === username);
 
   const handleLoginPress = () => {
@@ -37,21 +36,15 @@ const BookScreen: React.FC = () => {
         {username ? `${username}'s Books:` : "Please log in to view books"}
       </Text>
       {loggedIn ? (
-        currentUser?.books && currentUser?.books.length > 0 ? ( // Check if the user has books
+        currentUser?.books && currentUser?.books.length > 0 ? ( 
           <FlatList
-            data={currentUser.books} // Display books for the current user
+            data={currentUser.books} 
             renderItem={({ item }) => (
-              <View>
-                <Text style={{ fontSize: 16, color: "white" }}>
-                  {item.title} by {item.author}
-                </Text>
+              <View style={styles.container}>
+                <Text style={{ fontSize: 16, color: "white" }}>{item.title} by {item.author}</Text>
                 <Text style={{ fontSize: 16, color: "white" }}>{item.catagory}</Text>
                 <Text style={{ fontSize: 16, color: "white" }}>{item.description}</Text>
-                  
-                <Image
-                  source={item.image}
-                  style={{ width: 80, height: 80 }}
-                />
+                <Image source={item.image} style={{ width: 80, height: 80 }} />
               </View>
             )}
             keyExtractor={(item, index) => index.toString()}
@@ -71,6 +64,10 @@ const BookScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
   button: {
     backgroundColor: "#0b114f",
     borderRadius: 20,

@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { MaterialIcons } from "@expo/vector-icons"; // Importing MaterialIcons from expo/vector-icons
+import { MaterialIcons } from "@expo/vector-icons"; 
 
 type RegisterModalProps = {
   visible: boolean;
