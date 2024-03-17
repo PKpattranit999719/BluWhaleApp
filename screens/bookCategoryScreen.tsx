@@ -11,7 +11,7 @@ const BookCategoryScreen: React.FC = () => {
   const navigation = useNavigation();
 
   const handleBookPress = (book) => {
-    navigation.navigate("Home", { book });
+    navigation.navigate("BookDetail", { book });
   };
 
 

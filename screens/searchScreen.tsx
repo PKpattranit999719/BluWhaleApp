@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Image, Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import BookCategoryScreen from "./bookCategoryScreen";
+import BookDetailScreen from "./bookDetailScreen";
 
 const Stack = createStackNavigator();
 
@@ -60,12 +61,17 @@ function MyStack() {
         name="search"
         component={SearchScreen}
       />
-      <Stack.Screen name="RomanceFantasy" component={BookCategoryScreen} />
-      <Stack.Screen name="Romance" component={BookCategoryScreen} />
-      <Stack.Screen name="Drama" component={BookCategoryScreen} />
-      <Stack.Screen name="Fantasy" component={BookCategoryScreen} />
-      <Stack.Screen name="Thriller" component={BookCategoryScreen} />
-      <Stack.Screen name="Action" component={BookCategoryScreen} />
+      <Stack.Screen name="RomanceFantasy" component={BookCategoryScreen} options={{ title: 'Romance Fantasy' }}/>
+      <Stack.Screen name="Romance" component={BookCategoryScreen} options={{ title: 'Romance' }}/>
+      <Stack.Screen name="Drama" component={BookCategoryScreen} options={{ title: 'Drama' }}/>
+      <Stack.Screen name="Fantasy" component={BookCategoryScreen} options={{ title: 'Fantasy' }}/>
+      <Stack.Screen name="Thriller" component={BookCategoryScreen} options={{ title: 'Thriller' }}/>
+      <Stack.Screen name="Action" component={BookCategoryScreen} options={{ title: 'Action' }}/>
+      <Stack.Screen 
+        name="BookDetail" 
+        component={BookDetailScreen} 
+        options={{ title: 'Book Detail' }}
+        />
     </Stack.Navigator>
   );
 }
@@ -73,3 +79,4 @@ function MyStack() {
 export default function SearchScreenWrapper() {
   return <MyStack />;
 }
+

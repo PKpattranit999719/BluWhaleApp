@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import { sampleBooks } from "../sampleData";
 import { useRoute } from "@react-navigation/native";
 
-const BookEpisodeScreen: React.FC = () => {
-  const route = useRoute();
+function BookDetailScreen({ route }) {
+  const { bookTitle } = route.params;
+  
   const { book } = route.params;
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -21,45 +21,45 @@ const BookEpisodeScreen: React.FC = () => {
       ))}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  image: {
-    width: 200,
-    height: 200,
-    marginBottom: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 5,
-  },
-  author: {
-    marginBottom: 5,
-  },
-  category: {
-    marginBottom: 5,
-  },
-  description: {
-    marginBottom: 10,
-    textAlign: "center",
-  },
-  episodeHeader: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 5,
-  },
-  episode: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 10,
-    marginBottom: 5,
-  },
-});
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    image: {
+      width: 200,
+      height: 200,
+      marginBottom: 10,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: "bold",
+      marginBottom: 5,
+    },
+    author: {
+      marginBottom: 5,
+    },
+    category: {
+      marginBottom: 5,
+    },
+    description: {
+      marginBottom: 10,
+      textAlign: "center",
+    },
+    episodeHeader: {
+      fontSize: 16,
+      fontWeight: "bold",
+      marginBottom: 5,
+    },
+    episode: {
+      borderWidth: 1,
+      borderColor: "#ccc",
+      padding: 10,
+      marginBottom: 5,
+    },
+  });
 
-export default BookEpisodeScreen;
+export default BookDetailScreen;
