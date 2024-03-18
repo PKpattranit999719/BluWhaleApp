@@ -2,23 +2,26 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { sampleBooks } from "../sampleData";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 
 const BookCategoryScreen: React.FC = () => {
   const route = useRoute();
   const { category } = route.params;
-  const filteredBooks = sampleBooks.filter((book) => book.category === category);
+  const filteredBooks = sampleBooks.filter(
+    (book) => book.category === category
+  );
   const navigation = useNavigation();
 
   const handleBookPress = (book) => {
     navigation.navigate("BookDetail", { book });
   };
 
-
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       {filteredBooks.map((book) => (
-        <TouchableOpacity key={book.title} onPress={() => handleBookPress(book)}>
+        <TouchableOpacity
+          key={book.title}
+          onPress={() => handleBookPress(book)}
+        >
           <View>
             <Text>{book.title}</Text>
             <Text>{book.author}</Text>

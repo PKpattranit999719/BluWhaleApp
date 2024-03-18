@@ -238,8 +238,6 @@ export const sampleUsers = [
     username: "User1",
     birthdate: new Date(1995, 5, 15),
     books: [
-      { title: "Book 3", author: "Author 3" },
-      { title: "Book 4", author: "Author 4" },
     ],
   },
   {
@@ -248,8 +246,6 @@ export const sampleUsers = [
     username: "User2",
     birthdate: new Date(1987, 8, 25),
     books: [
-      { title: "Book 5", author: "Author 5" },
-      { title: "Book 6", author: "Author 6" },
     ],
   },
   {
@@ -258,8 +254,6 @@ export const sampleUsers = [
     username: "User3",
     birthdate: new Date(1980, 3, 10),
     books: [
-      { title: "Book 7", author: "Author 7" },
-      { title: "Book 8", author: "Author 8" },
     ],
   },
 ];

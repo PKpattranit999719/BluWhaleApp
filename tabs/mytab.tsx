@@ -14,7 +14,6 @@ import BookScreen from '../screens/bookScreen';
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
-    const navigation = useNavigation();
     const { loggedIn, logout } = useAuth(); // Access loggedIn state and logout function from AuthContext
 
     const handleLogout = async () => {

@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { useAuth } from "../authContext";
-import RegisterModal from "../modal/registerModal"; 
+import RegisterModal from "../modal/registerModal";
 import { sampleUsers } from "../sampleData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoginModal from "../modal/loginModal";
@@ -61,11 +61,10 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleRegister = () => {
-    setRegisterModalVisible(true); 
+    setRegisterModalVisible(true);
   };
 
   const handleRegisterSubmit = (username, email, password, birthdate) => {
-    // Perform registration
     register(username, email, birthdate, password);
     setRegisterModalVisible(false);
     Alert.alert("Register Successfully.");

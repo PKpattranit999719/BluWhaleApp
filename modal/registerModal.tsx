@@ -1,76 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Modal,
   View,
   Text,
   TextInput,
-  Button,
-  StyleSheet,
   TouchableOpacity,
+  StyleSheet,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { MaterialIcons } from "@expo/vector-icons"; 
+import { MaterialIcons } from "@expo/vector-icons";
+import { useAuth } from "../authContext";
 
 type RegisterModalProps = {
   visible: boolean;
   onClose: () => void;
-  onRegister: (
-    username: string,
-    email: string,
-    password: string,
-    birthdate: Date
-  ) => void;
 };
 
-const RegisterModal: React.FC<RegisterModalProps> = ({
-  visible,
-  onClose,
-  onRegister,
-}) => {
+const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose }) => {
+  const { register } = useAuth();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [birthdate, setBirthdate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 
-  useEffect(() => {
-    if (!visible) {
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      setBirthdate(new Date());
-    }
-  }, [visible]);
-
   const handleRegister = () => {
-    // Check if any input field is empty or missing
     if (!username || !email || !password || !birthdate) {
       alert("Please fill in all fields.");
       return;
     }
 
-    // Calculate age based on birthdate
-    const today = new Date();
-    let age = today.getFullYear() - birthdate.getFullYear();
-    const monthDiff = today.getMonth() - birthdate.getMonth();
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < birthdate.getDate())
-    ) {
-      age--;
-    }
+    // Call the register function from the authentication context
+    register(username, email, birthdate, password);
 
-    // Check if age is below 10
-    if (age < 10) {
-      alert("You must be at least 10 years old to register.");
-      return;
-    }
-
-    // Perform registration
-    onRegister(username, email, password, birthdate);
+    // Close the modal
+    onClose();
   };
 
-  const handleDateChange = (event: any, selectedDate: Date) => {
+  const handleDateChange = (_event: any, selectedDate: Date) => {
     setShowDatePicker(false);
     if (selectedDate) {
       setBirthdate(selectedDate);
@@ -125,7 +92,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
               value={birthdate}
               mode="date"
               display="default"
-              maximumDate={new Date()} 
+              maximumDate={new Date()}
               onChange={handleDateChange}
             />
           )}
@@ -186,7 +153,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   birthText: {
-    fontSize: 17.5, 
+    fontSize: 17.5,
   },
   selectedDateText: {
     fontSize: 17,

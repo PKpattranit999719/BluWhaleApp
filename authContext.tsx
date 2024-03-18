@@ -46,15 +46,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const register = async (username: string, email: string, birthdate: Date, password: string) => {
-    // Perform registration logic here
-    // For simplicity, we'll just save registration details to AsyncStorage
     try {
       await AsyncStorage.setItem('loggedInUserDetails', JSON.stringify({ username, email, birthdate }));
-      // Call login to update loggedIn state and username
       login(username);
     } catch (error) {
       console.error('Error storing registration details: ', error);
-      // You might want to handle this error in your app
     }
   };
 

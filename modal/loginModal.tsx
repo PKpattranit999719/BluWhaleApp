@@ -154,30 +154,30 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   button: {
-    backgroundColor: '#0b114f',
+    backgroundColor: "#0b114f",
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 25,
     marginTop: 20,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 17,
-    textAlign: 'center',
+    textAlign: "center",
   },
   checkbox: {
     width: 20,
     height: 20,
     borderRadius: 3,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     marginRight: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   checked: {
-    backgroundColor: '#007bff',
-    borderColor: '#007bff',
+    backgroundColor: "#007bff",
+    borderColor: "#007bff",
   },
 });
 

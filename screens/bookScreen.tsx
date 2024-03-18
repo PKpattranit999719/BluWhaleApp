@@ -1,10 +1,17 @@
-import React from "react";
-import { StyleSheet, FlatList, Text, View, TouchableOpacity, Image} from "react-native";
-import { sampleUsers } from "../sampleData";
+import React, { useCallback, useState } from "react";
+import {
+  StyleSheet,
+  FlatList,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { useAuth } from "../authContext";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import BookDetailScreen from "./bookDetailScreen";
+import { sampleUsers } from "../sampleData";
 
 const Stack = createStackNavigator();
 
@@ -13,22 +20,22 @@ function BookStack() {
     <Stack.Navigator>
       <Stack.Screen
         options={{ headerShown: false }}
-        name="Book"
+        name="My Book"
         component={BookScreen}
       />
-      <Stack.Screen 
-        name="BookDetail" 
-        component={BookDetailScreen} 
-        options={{ title: 'Book Detail' }}
-        />    
-      </Stack.Navigator>
+      <Stack.Screen
+        name="BookDetail"
+        component={BookDetailScreen}
+        options={{ title: "Book Detail" }}
+      />
+    </Stack.Navigator>
   );
 }
 
 const BookScreen: React.FC = () => {
   const { username, loggedIn } = useAuth();
   const navigation = useNavigation();
-  const currentUser = sampleUsers.find((user) => user.username === username);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const handleLoginPress = () => {
     if (!loggedIn) {
@@ -40,30 +47,50 @@ const BookScreen: React.FC = () => {
     navigation.navigate("BookDetail", { book });
   };
 
+  const fetchUserData = useCallback(() => {
+    const user = sampleUsers.find((user) => user.username === username);
+    setCurrentUser(user);
+  }, [username]);
+
+  useFocusEffect(fetchUserData);
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#2D466B" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#2D466B",
+      }}
+    >
       <Text style={{ fontSize: 20, fontWeight: "bold", color: "white" }}>
         {username ? `${username}'s Books:` : "Please log in to view books"}
       </Text>
       {loggedIn ? (
-        currentUser?.books && currentUser?.books.length > 0 ? ( 
+        currentUser && currentUser.books.length > 0 ? (
           <FlatList
-            data={currentUser.books} 
+            data={currentUser.books}
             renderItem={({ item }) => (
-              <TouchableOpacity style={styles.container} onPress={() => handleBookPress(item)}>
-                <Text style={{ fontSize: 16, color: "white" }}>{item.title} by {item.author}</Text>
-                <Image source={item.image} style={{ width: 80, height: 80 }} />
+              <TouchableOpacity
+                onPress={() => handleBookPress(item)}
+                style={styles.bookItem}
+              >
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    source={item.image}
+                    style={{ width: 50, height: 50, marginRight: 10 }}
+                  />
+                  <Text style={styles.bookTitle}>{item.title}</Text>
+                </View>
               </TouchableOpacity>
             )}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(item) => item.title}
           />
         ) : (
-          <Text style={{ fontSize: 16, color: "white" }}>
-            You don't have any book here
-          </Text>
+          <Text style={styles.noBooksText}>No books found for this user</Text>
         )
       ) : (
-        <TouchableOpacity style={styles.button} onPress={handleLoginPress}>
+        <TouchableOpacity onPress={handleLoginPress} style={styles.button}>
           <Text style={styles.buttonText}>:~Login~:</Text>
         </TouchableOpacity>
       )}
@@ -71,12 +98,20 @@ const BookScreen: React.FC = () => {
   );
 };
 
-
-
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
+  bookItem: {
+    marginBottom: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+  },
+  bookTitle: {
+    fontSize: 16,
+  },
+  noBooksText: {
+    fontSize: 16,
+    color: "white",
   },
   button: {
     backgroundColor: "#0b114f",
@@ -92,7 +127,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 export default function BookScreenWrapper() {
-  return <BookStack/>;
+  return <BookStack />;
 }

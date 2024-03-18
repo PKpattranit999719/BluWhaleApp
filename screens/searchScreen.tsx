@@ -35,7 +35,13 @@ function SearchScreen({ navigation }) {
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderWidth: 1, margin: 10, paddingHorizontal: 10 }}
+          style={{
+            height: 40,
+            borderColor: "gray",
+            borderWidth: 1,
+            margin: 10,
+            paddingHorizontal: 10,
+          }}
           placeholder="Search Books"
           onChangeText={handleSearch}
           value={searchQuery}
@@ -44,10 +50,8 @@ function SearchScreen({ navigation }) {
           {filteredBooks.map((book, index) => (
             <Text
               key={index}
-              onPress={() =>
-                navigation.navigate("BookDetail", { book: book })
-              }
-              style={{ padding: 10, borderBottomWidth: 1, borderColor: '#ccc' }}
+              onPress={() => navigation.navigate("BookDetail", { book: book })}
+              style={{ padding: 10, borderBottomWidth: 1, borderColor: "#ccc" }}
             >
               {book.title}
             </Text>
@@ -59,12 +63,16 @@ function SearchScreen({ navigation }) {
           <CustomButton
             title="โรแมนซ์แฟนตาซี"
             onPress={() =>
-              navigation.navigate("RomanceFantasy", { category: "RomanceFantasy" })
+              navigation.navigate("RomanceFantasy", {
+                category: "RomanceFantasy",
+              })
             }
           />
           <CustomButton
             title="โรแมนซ์"
-            onPress={() => navigation.navigate("Romance", { category: "Romance" })}
+            onPress={() =>
+              navigation.navigate("Romance", { category: "Romance" })
+            }
           />
           <CustomButton
             title="ดราม่า"
@@ -74,7 +82,9 @@ function SearchScreen({ navigation }) {
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
           <CustomButton
             title="แฟนตาซี"
-            onPress={() => navigation.navigate("Fantasy", { category: "Fantasy" })}
+            onPress={() =>
+              navigation.navigate("Fantasy", { category: "Fantasy" })
+            }
           />
           <CustomButton
             title="ระทึกขวัญ"
@@ -84,7 +94,9 @@ function SearchScreen({ navigation }) {
           />
           <CustomButton
             title="แอคชั่น"
-            onPress={() => navigation.navigate("Action", { category: "Action" })}
+            onPress={() =>
+              navigation.navigate("Action", { category: "Action" })
+            }
           />
         </View>
       </View>
@@ -94,11 +106,11 @@ function SearchScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     paddingHorizontal: 10,
     paddingVertical: 10,
   },
@@ -109,11 +121,11 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 10,
-    backgroundColor: '#191970',
-    color: '#fff',
-    textAlign: 'center',
+    backgroundColor: "#191970",
+    color: "#fff",
+    textAlign: "center",
     borderRadius: 5,
-  }
+  },
 });
 
 function SearchStack() {
@@ -124,17 +136,41 @@ function SearchStack() {
         name="search"
         component={SearchScreen}
       />
-      <Stack.Screen name="RomanceFantasy" component={BookCategoryScreen} options={{ title: 'Romance Fantasy' }}/>
-      <Stack.Screen name="Romance" component={BookCategoryScreen} options={{ title: 'Romance' }}/>
-      <Stack.Screen name="Drama" component={BookCategoryScreen} options={{ title: 'Drama' }}/>
-      <Stack.Screen name="Fantasy" component={BookCategoryScreen} options={{ title: 'Fantasy' }}/>
-      <Stack.Screen name="Thriller" component={BookCategoryScreen} options={{ title: 'Thriller' }}/>
-      <Stack.Screen name="Action" component={BookCategoryScreen} options={{ title: 'Action' }}/>
-      <Stack.Screen 
-        name="BookDetail" 
-        component={BookDetailScreen} 
-        options={{ title: 'Book Detail' }}
-        />
+      <Stack.Screen
+        name="RomanceFantasy"
+        component={BookCategoryScreen}
+        options={{ title: "Romance Fantasy" }}
+      />
+      <Stack.Screen
+        name="Romance"
+        component={BookCategoryScreen}
+        options={{ title: "Romance" }}
+      />
+      <Stack.Screen
+        name="Drama"
+        component={BookCategoryScreen}
+        options={{ title: "Drama" }}
+      />
+      <Stack.Screen
+        name="Fantasy"
+        component={BookCategoryScreen}
+        options={{ title: "Fantasy" }}
+      />
+      <Stack.Screen
+        name="Thriller"
+        component={BookCategoryScreen}
+        options={{ title: "Thriller" }}
+      />
+      <Stack.Screen
+        name="Action"
+        component={BookCategoryScreen}
+        options={{ title: "Action" }}
+      />
+      <Stack.Screen
+        name="BookDetail"
+        component={BookDetailScreen}
+        options={{ title: "Book Detail" }}
+      />
     </Stack.Navigator>
   );
 }
