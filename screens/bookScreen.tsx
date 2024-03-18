@@ -93,6 +93,6 @@ const styles = StyleSheet.create({
 });
 
 
-export default function SearchScreenWrapper() {
+export default function BookScreenWrapper() {
   return <BookStack/>;
 }

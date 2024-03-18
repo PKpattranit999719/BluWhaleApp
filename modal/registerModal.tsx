@@ -51,7 +51,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
 
     // Calculate age based on birthdate
     const today = new Date();
-    const age = today.getFullYear() - birthdate.getFullYear();
+    let age = today.getFullYear() - birthdate.getFullYear();
     const monthDiff = today.getMonth() - birthdate.getMonth();
     if (
       monthDiff < 0 ||
