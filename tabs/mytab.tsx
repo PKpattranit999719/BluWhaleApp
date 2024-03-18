@@ -54,7 +54,6 @@ export default function MyTabs() {
                     return <Ionicons name={iconName} color={color} size={25} />
                 },
                 headerRight: () => (
-                    // Render logout button only when loggedIn is true
                     loggedIn && (
                         <TouchableOpacity onPress={handleLogout} style={{marginRight: 10}}>
                             <Ionicons name="log-out" color="black" size={25} />

@@ -1,16 +1,29 @@
 import React from "react";
-import {
-  StyleSheet,
-  FlatList,
-  Text,
-  View,
-  Button,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { StyleSheet, FlatList, Text, View, TouchableOpacity, Image} from "react-native";
 import { sampleUsers } from "../sampleData";
 import { useAuth } from "../authContext";
 import { useNavigation } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import BookDetailScreen from "./bookDetailScreen";
+
+const Stack = createStackNavigator();
+
+function BookStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Book"
+        component={BookScreen}
+      />
+      <Stack.Screen 
+        name="BookDetail" 
+        component={BookDetailScreen} 
+        options={{ title: 'Book Detail' }}
+        />    
+      </Stack.Navigator>
+  );
+}
 
 const BookScreen: React.FC = () => {
   const { username, loggedIn } = useAuth();
@@ -23,15 +36,12 @@ const BookScreen: React.FC = () => {
     }
   };
 
+  const handleBookPress = (book) => {
+    navigation.navigate("BookDetail", { book });
+  };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#2D466B",
-      }}
-    >
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#2D466B" }}>
       <Text style={{ fontSize: 20, fontWeight: "bold", color: "white" }}>
         {username ? `${username}'s Books:` : "Please log in to view books"}
       </Text>
@@ -40,12 +50,10 @@ const BookScreen: React.FC = () => {
           <FlatList
             data={currentUser.books} 
             renderItem={({ item }) => (
-              <View style={styles.container}>
+              <TouchableOpacity style={styles.container} onPress={() => handleBookPress(item)}>
                 <Text style={{ fontSize: 16, color: "white" }}>{item.title} by {item.author}</Text>
-                <Text style={{ fontSize: 16, color: "white" }}>{item.catagory}</Text>
-                <Text style={{ fontSize: 16, color: "white" }}>{item.description}</Text>
                 <Image source={item.image} style={{ width: 80, height: 80 }} />
-              </View>
+              </TouchableOpacity>
             )}
             keyExtractor={(item, index) => index.toString()}
           />
@@ -62,6 +70,8 @@ const BookScreen: React.FC = () => {
     </View>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -82,4 +92,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BookScreen;
+
+export default function SearchScreenWrapper() {
+  return <BookStack/>;
+}
