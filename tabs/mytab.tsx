@@ -1,12 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../authContext'; // Import useAuth hook
 
-//Screen
 import HomeScreen from '../screens/homeScreen';
 import SearchScreen from '../screens/searchScreen';
 import BookScreen from '../screens/bookScreen';
@@ -14,15 +12,31 @@ import BookScreen from '../screens/bookScreen';
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
-    const { loggedIn, logout } = useAuth(); // Access loggedIn state and logout function from AuthContext
+    const { loggedIn, logout } = useAuth();
 
     const handleLogout = async () => {
-        try {
-            await AsyncStorage.removeItem('loggedInUserEmail');
-            logout(); 
-        } catch (error) {
-            console.error('Error logging out: ', error);
-        }
+        // Show alert for confirmation
+        Alert.alert(
+            'Logout',
+            'Are you sure you want to log out?',
+            [
+                {
+                    text: 'Cancel',
+                    style: 'cancel'
+                },
+                {
+                    text: 'Logout',
+                    onPress: async () => {
+                        try {
+                            await AsyncStorage.removeItem('loggedInUserEmail');
+                            logout();
+                        } catch (error) {
+                            console.error('Error logging out: ', error);
+                        }
+                    }
+                }
+            ]
+        );
     };
 
     return (
