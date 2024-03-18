@@ -6,7 +6,7 @@ export const sampleBooks = [
     description: "ชาติที่แล้วเสียชีวิตโดยเป็นฝีมือของพี่สาว ย้อนเวลาชาตินี้เลยมาแก้แค้นพี่สาว",
     image: require("./assets/book_image/ชาตินี้น้องขอเป็นราชินี.jpg"),
     episodes: [
-      { episodeNumber: 1},
+      { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep1/viewer?title_no=4853&episode_no=1"},
       { episodeNumber: 2},
       { episodeNumber: 3}
     ]
