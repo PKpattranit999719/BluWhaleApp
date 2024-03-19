@@ -1,14 +1,14 @@
 export const sampleBooks = [
   { 
-    title: "ชาตินี้น้องขอเป็นราชนี", 
+    title: "ชาตินี้น้องขอเป็นราชินี", 
     author: "Lefaljinf",
     category: "RomanceFantasy",
     description: "ชาติที่แล้วเสียชีวิตโดยเป็นฝีมือของพี่สาว ย้อนเวลาชาตินี้เลยมาแก้แค้นพี่สาว",
     image: require("./assets/book_image/ชาตินี้น้องขอเป็นราชินี.jpg"),
     episodes: [
       { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep1/viewer?title_no=4853&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep2/viewer?title_no=4853&episode_no=2"},
+      { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep3/viewer?title_no=4853&episode_no=3"}
     ]
   },
   { 
@@ -19,8 +19,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/แด่ตัวละครโปรดที่ถูกทิ้ง.jpg"),
     episodes: [
       { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep1/viewer?title_no=4645&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep2/viewer?title_no=4645&episode_no=2"},
+      { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep3/viewer?title_no=4645&episode_no=3"}
     ]
   },
   { 
@@ -31,8 +31,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/บุตรสาวของดยุกปีศาจ.jpg"),
     episodes: [
       { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/monster-duke-daughter/ep1/viewer?title_no=3876&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/monster-duke-daughter/ep2/viewer?title_no=3876&episode_no=2"},
+      { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/monster-duke-daughter/ep3/viewer?title_no=3876&episode_no=3"}
     ]
   },
 
@@ -43,9 +43,9 @@ export const sampleBooks = [
     description: "ทายาทเพียงหนึ่งเดียวของตระกูลเซเรนิตี้ถูกคุณยายจับคลุมถุงชนให้แต่งงานกับชายที่เธอเหม็นขี้หน้าที่สุดในอาณาจักร",
     image: require("./assets/book_image/เซเรน่า.jpg"),
     episodes: [
-      { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/serena/prologue/viewer?title_no=5062&episode_no=1&ogTagImageUrl=%2F20221222_87%2F1671697387777CM9pe_JPEG%2F509_Detail_MO__a10860.jpg%3Ftype%3Dcrop540_540"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/serena/prologue/viewer?title_no=5062&episode_no=1"},
+      { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/serena/ep1/viewer?title_no=5062&episode_no=2"},
+      { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/serena/ep2/viewer?title_no=5062&episode_no=3"}
     ]
   },
   { 
@@ -56,8 +56,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/วันทองไร้ใจ.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/romantic-fantasy/wanthong-rai-jai/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97-/viewer?title_no=3522&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/romantic-fantasy/wanthong-rai-jai/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97-/viewer?title_no=3522&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/romantic-fantasy/wanthong-rai-jai/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97-/viewer?title_no=3522&episode_no=3"}
     ]
   },
   { 
@@ -68,8 +68,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/โรซาลิน โวการ์ต.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/romantic-fantasy/rosaline-vogart/prologue/viewer?title_no=5090&episode_no=1&ogTagImageUrl=%2F20230104_189%2F16728216938800Jgcs_JPEG%2F7Mobile_Detail_Banner__ee2929.jpg%3Ftype%3Dcrop540_540"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/romantic-fantasy/rosaline-vogart/ep1/viewer?title_no=5090&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/romantic-fantasy/rosaline-vogart/ep2/viewer?title_no=5090&episode_no=3"}
     ]
   },
 
@@ -81,8 +81,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/สามีคนนี้แจกฟรีให้เธอ.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/drama/marry-my-husband/ep1/viewer?title_no=3987&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/drama/marry-my-husband/ep2/viewer?title_no=3987&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/drama/marry-my-husband/ep3/viewer?title_no=3987&episode_no=3"}
     ]
   },
   { 
@@ -93,8 +93,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/เดเดส.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/romantic-fantasy/dedes/ep1-%E0%B9%81%E0%B8%AD%E0%B8%A3%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%AA/viewer?title_no=4276&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/romantic-fantasy/dedes/ep2-%E0%B8%82%E0%B8%B2%E0%B8%A1%E0%B8%A1%E0%B8%95/viewer?title_no=4276&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/romantic-fantasy/dedes/ep3-%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%A8%E0%B8%A7%E0%B8%A3/viewer?title_no=4276&episode_no=3"}
     ]
   },
   { 
@@ -105,8 +105,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/การแต่งงานครั้งใหม่ของจักรพรรดินี.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/romantic-fantasy/remarried-queen/ep1/viewer?title_no=1799&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/romantic-fantasy/remarried-queen/ep2/viewer?title_no=1799&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/romantic-fantasy/remarried-queen/ep3/viewer?title_no=1799&episode_no=3"}
     ]
   },
 
@@ -118,8 +118,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/โนเบลส NOBLESSE.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/fantasy/noblesse/ep-1/viewer?title_no=324&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/fantasy/noblesse/ep-2/viewer?title_no=324&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/fantasy/noblesse/ep-3/viewer?title_no=324&episode_no=3"}
     ]
   },
   { 
@@ -130,8 +130,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/Nan Yak พันธะสัญญาดอกกล้วยไม้.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/fantasy/nanyak/prologue/viewer?title_no=1908&episode_no=1&ogTagImageUrl=%2F20200214_123%2F1581674435738uWlq8_JPEG%2FM_details.jpg%3Ftype%3Dcrop540_540"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/fantasy/nanyak/ep1/viewer?title_no=1908&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/fantasy/nanyak/ep2/viewer?title_no=1908&episode_no=3"}
     ]
   },
   { 
@@ -142,8 +142,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/ชีวิตนักเรียนฉัน ขอคืนเถอะนะ.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/fantasy/return-my-school-life/prologue/viewer?title_no=1355&episode_no=1&ogTagImageUrl=%2F20190611_224%2F1560230359263gP43j_JPEG%2F720.jpg%3Ftype%3Dcrop540_540"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:""},
+      { episodeNumber: 3,link:""}
     ]
   },
 
@@ -155,8 +155,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/โรงละครส่งวิญญาณ.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/drama/ghost-theater/ep1/viewer?title_no=1712&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:""},
+      { episodeNumber: 3,link:""}
     ]
   },
   { 
@@ -167,8 +167,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/เรื่องเล่าจากวิญญาณ.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/thriller/ghost-teller/%E0%B8%9A%E0%B8%97%E0%B8%99%E0%B8%B3/viewer?title_no=944&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:""},
+      { episodeNumber: 3,link:""}
     ]
   },
   { 
@@ -179,8 +179,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/DEAD LIFE.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/thriller/deadlife/prologue/viewer?title_no=1565&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:""},
+      { episodeNumber: 3,link:""}
     ]
   },
 
@@ -192,8 +192,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/LOOKISM.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/action/lookism/ep01/viewer?title_no=576&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:""},
+      { episodeNumber: 3,link:""}
     ]
   },
   { 
@@ -204,8 +204,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/White Blood.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/action/white-blood/prologue/viewer?title_no=1948&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:""},
+      { episodeNumber: 3,link:""}
     ]
   },
   { 
@@ -216,8 +216,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/นักฆ่าย้อนวัย.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/action/killer-peter/ep1/viewer?title_no=5899&episode_no=1"},
-      { episodeNumber: 2},
-      { episodeNumber: 3}
+      { episodeNumber: 2,link:""},
+      { episodeNumber: 3,link:""}
     ]
   },
 ];

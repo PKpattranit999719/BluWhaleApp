@@ -49,7 +49,9 @@ function BookDetailScreen({ route }) {
     if (currentUser) {
       const updatedUser = { ...currentUser };
       if (bookmarked) {
-        updatedUser.books.pop(book);
+        currentUser.books = currentUser.books.filter(function(bookItem) {
+          return bookItem !== book;
+        });
         console.log(currentUser.books);
       } else {
         updatedUser.books.push(book);
