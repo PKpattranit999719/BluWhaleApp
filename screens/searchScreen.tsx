@@ -32,17 +32,21 @@ function SearchScreen({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: '#2D466B' }}>
       <ScrollView style={{ flex: 1 }}>
         <TextInput
           style={{
             height: 40,
-            borderColor: "gray",
+            backgroundColor: "#DAE9FF",
+            borderColor: "#000000",
+            color: "#FFFFFF",
             borderWidth: 1,
             margin: 10,
+            marginTop: 10,
             paddingHorizontal: 10,
           }}
           placeholder="Search Books"
+          placeholderTextColor="#000000" 
           onChangeText={handleSearch}
           value={searchQuery}
         />
@@ -59,8 +63,9 @@ function SearchScreen({ navigation }) {
         </View>
       </ScrollView>
       <View style={styles.buttonWrapper}>
+      <Text style={styles.categoryText}>ประเภท</Text>
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
-          <CustomButton
+                    <CustomButton
             title="โรแมนซ์แฟนตาซี"
             onPress={() =>
               navigation.navigate("RomanceFantasy", {
@@ -110,7 +115,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "#fff",
+    backgroundColor: "#DAE9FF",
     paddingHorizontal: 10,
     paddingVertical: 10,
   },
@@ -126,6 +131,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderRadius: 5,
   },
+  categoryText: {
+    fontSize: 23,
+    fontWeight: "bold",
+    marginRight: 10,
+    color: "#000033",
+    marginLeft: 8,
+    marginBottom: 8,
+  }
 });
 
 function SearchStack() {

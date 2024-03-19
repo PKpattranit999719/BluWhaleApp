@@ -47,17 +47,16 @@ function BookDetailScreen({ route }) {
   const handleBookmark = () => {
     setBookmarked(!bookmarked);
     if (currentUser) {
-      const updatedUser = { ...currentUser };
       if (bookmarked) {
         currentUser.books = currentUser.books.filter(function(bookItem) {
           return bookItem !== book;
         });
         console.log(currentUser.books);
       } else {
-        updatedUser.books.push(book);
+        currentUser.books.push(book);
         console.log(currentUser.books);
       }
-      setCurrentUser(updatedUser);
+      setCurrentUser(currentUser);
     }
     const message = bookmarked ? "Removed from bookmarks" : "Bookmarked";
     Alert.alert(message);
@@ -122,6 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 5,
+
   },
   author: {
     marginBottom: 5,

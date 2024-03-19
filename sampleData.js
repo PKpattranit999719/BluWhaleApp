@@ -129,7 +129,7 @@ export const sampleBooks = [
     description: "เด็กหนุ่มที่โตมาจากสถานเลี้ยงเด็กกำพร้าใช้ชีวิตเรียบง่ายเหมือนคนอื่นๆ จนกระทั่งได้สวมแว่นกรอบแดงอันนั้น โลกที่เขาเคยมองเห็นก็ไม่เหมือนเดิมอีกต่อไป “ความจริง” มีเพียงเขาเท่านั้นที่มองเห็นคือ...?!!",
     image: require("./assets/book_image/Nan Yak พันธะสัญญาดอกกล้วยไม้.jpg"),
     episodes: [
-      { episodeNumber: 1,link:"https://www.webtoons.com/th/fantasy/nanyak/prologue/viewer?title_no=1908&episode_no=1&ogTagImageUrl=%2F20200214_123%2F1581674435738uWlq8_JPEG%2FM_details.jpg%3Ftype%3Dcrop540_540"},
+      { episodeNumber: 1,link:"https://www.webtoons.com/th/fantasy/nanyak/prologue/viewer?title_no=1908&episode_no=1"},
       { episodeNumber: 2,link:"https://www.webtoons.com/th/fantasy/nanyak/ep1/viewer?title_no=1908&episode_no=2"},
       { episodeNumber: 3,link:"https://www.webtoons.com/th/fantasy/nanyak/ep2/viewer?title_no=1908&episode_no=3"}
     ]
@@ -141,9 +141,9 @@ export const sampleBooks = [
     description: "อยู่มา 19 ปียังไม่เคยมีแฟนสักคนดันมีเหตุการณ์ให้ชั้นต้องไปโลกหน้า?!จะตายแบบนี้ไม่ได้นะ! เรื่องราวโรแมนซ์แฟนตาซีที่เกิดขึ้นในโลกหน้า!",
     image: require("./assets/book_image/ชีวิตนักเรียนฉัน ขอคืนเถอะนะ.jpg"),
     episodes: [
-      { episodeNumber: 1,link:"https://www.webtoons.com/th/fantasy/return-my-school-life/prologue/viewer?title_no=1355&episode_no=1&ogTagImageUrl=%2F20190611_224%2F1560230359263gP43j_JPEG%2F720.jpg%3Ftype%3Dcrop540_540"},
-      { episodeNumber: 2,link:""},
-      { episodeNumber: 3,link:""}
+      { episodeNumber: 1,link:"https://www.webtoons.com/th/fantasy/return-my-school-life/prologue/viewer?title_no=1355&episode_no=1"},
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/fantasy/return-my-school-life/ep01/viewer?title_no=1355&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/fantasy/return-my-school-life/ep02/viewer?title_no=1355&episode_no=3"}
     ]
   },
 
@@ -155,8 +155,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/โรงละครส่งวิญญาณ.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/drama/ghost-theater/ep1/viewer?title_no=1712&episode_no=1"},
-      { episodeNumber: 2,link:""},
-      { episodeNumber: 3,link:""}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/drama/ghost-theater/ep2/viewer?title_no=1712&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/drama/ghost-theater/ep3/viewer?title_no=1712&episode_no=3"}
     ]
   },
   { 
@@ -167,8 +167,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/เรื่องเล่าจากวิญญาณ.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/thriller/ghost-teller/%E0%B8%9A%E0%B8%97%E0%B8%99%E0%B8%B3/viewer?title_no=944&episode_no=1"},
-      { episodeNumber: 2,link:""},
-      { episodeNumber: 3,link:""}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/thriller/ghost-teller/ep01-%E0%B9%80%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%A5%E0%B8%B2%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%AB%E0%B8%8D%E0%B8%87%E0%B8%84%E0%B8%99%E0%B8%99%E0%B8%991/viewer?title_no=944&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/thriller/ghost-teller/ep02-%E0%B9%80%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%A5%E0%B8%B2%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%AB%E0%B8%8D%E0%B8%87%E0%B8%84%E0%B8%99%E0%B8%99%E0%B8%992/viewer?title_no=944&episode_no=3"}
     ]
   },
   { 
@@ -179,8 +179,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/DEAD LIFE.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/thriller/deadlife/prologue/viewer?title_no=1565&episode_no=1"},
-      { episodeNumber: 2,link:""},
-      { episodeNumber: 3,link:""}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/thriller/deadlife/ep1/viewer?title_no=1565&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/thriller/deadlife/ep2/viewer?title_no=1565&episode_no=3"}
     ]
   },
 
@@ -192,8 +192,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/LOOKISM.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/action/lookism/ep01/viewer?title_no=576&episode_no=1"},
-      { episodeNumber: 2,link:""},
-      { episodeNumber: 3,link:""}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/action/lookism/ep02/viewer?title_no=576&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/action/lookism/ep03/viewer?title_no=576&episode_no=3"}
     ]
   },
   { 
@@ -204,8 +204,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/White Blood.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/action/white-blood/prologue/viewer?title_no=1948&episode_no=1"},
-      { episodeNumber: 2,link:""},
-      { episodeNumber: 3,link:""}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/action/white-blood/ep1/viewer?title_no=1948&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/action/white-blood/ep2/viewer?title_no=1948&episode_no=3"}
     ]
   },
   { 
@@ -216,8 +216,8 @@ export const sampleBooks = [
     image: require("./assets/book_image/นักฆ่าย้อนวัย.jpg"),
     episodes: [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/action/killer-peter/ep1/viewer?title_no=5899&episode_no=1"},
-      { episodeNumber: 2,link:""},
-      { episodeNumber: 3,link:""}
+      { episodeNumber: 2,link:"https://www.webtoons.com/th/action/killer-peter/ep2/viewer?title_no=5899&episode_no=2"},
+      { episodeNumber: 3,link:"https://www.webtoons.com/th/action/killer-peter/ep3/viewer?title_no=5899&episode_no=3"}
     ]
   },
 ];
