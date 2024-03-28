@@ -16,16 +16,16 @@ const BookCategoryScreen: React.FC = () => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={styles.container}>
       {filteredBooks.map((book) => (
         <TouchableOpacity
           key={book.title}
           onPress={() => handleBookPress(book)}
         >
-          <View>
-            <Text>{book.title}</Text>
-            <Text>{book.author}</Text>
-            <Image source={book.image} style={{ width: 80, height: 80 }} />
+          <View style={styles.bookContainer}>
+            <Image source={book.image} style={styles.image} />
+            <Text style={styles.title}>{book.title}</Text>
+            <Text style={styles.author}>{book.author}</Text>
           </View>
         </TouchableOpacity>
       ))}
@@ -35,20 +35,32 @@ const BookCategoryScreen: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#182F4A",
     justifyContent: "center",
     alignItems: "center",
   },
-  button: {
-    backgroundColor: "#0b114f",
-    borderRadius: 20,
-    paddingVertical: 15,
-    paddingHorizontal: 25,
-    marginTop: 20,
+  bookContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 20,
   },
-  buttonText: {
-    color: "white",
-    fontSize: 17,
+  image: {
+    width: 120,
+    height: 120,
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
     textAlign: "center",
+    marginBottom: 5,
+    color: "white",
+  },
+  author: {
+    fontSize: 16,
+    textAlign: "center",
+    color: "white",
   },
 });
 

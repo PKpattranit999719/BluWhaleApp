@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import BookCategoryScreen from "./bookCategoryScreen";
 import BookDetailScreen from "./bookDetailScreen";
 import { sampleBooks } from "../sampleData";
+import { hotStorys } from "../sampleData";
 
 const Stack = createStackNavigator();
 
@@ -32,21 +33,21 @@ function SearchScreen({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#2D466B' }}>
+    <View style={{ flex: 1, backgroundColor: "#2D466B" }}>
       <ScrollView style={{ flex: 1 }}>
         <TextInput
           style={{
             height: 40,
             backgroundColor: "#DAE9FF",
             borderColor: "#000000",
-            color: "#FFFFFF",
+            color: "black",
             borderWidth: 1,
             margin: 10,
             marginTop: 10,
             paddingHorizontal: 10,
           }}
           placeholder="Search Books"
-          placeholderTextColor="#000000" 
+          placeholderTextColor="#000000"
           onChangeText={handleSearch}
           value={searchQuery}
         />
@@ -55,17 +56,50 @@ function SearchScreen({ navigation }) {
             <Text
               key={index}
               onPress={() => navigation.navigate("BookDetail", { book: book })}
-              style={{ padding: 10, borderBottomWidth: 1, borderColor: "#ccc" }}
+              style={{
+                padding: 10,
+                borderBottomWidth: 1,
+                color: "white",
+                borderColor: "#ccc",
+              }}
             >
               {book.title}
             </Text>
           ))}
         </View>
+        <View style={{ marginTop: 20, paddingHorizontal: 10 }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold", color: "#FFFFFF" }}>
+            5 อันดับเรื่องที่มาแรง
+          </Text>
+          {hotStorys.map((story, index) => (
+            <View key={index}>
+              <Text
+                onPress={() =>
+                  navigation.navigate("BookDetail", { book: story })
+                }
+                style={{
+                  padding: 10,
+                  borderBottomWidth: 1,
+                  borderColor: "#ccc",
+                  color: "#FFFFFF",
+                }}
+              >
+                {story.title} - {story.popularity}
+                {story.popularity === "High" && (
+                  <Text style={{ color: "#1E90FF" }}>{`\u25B2`}</Text>
+                )}
+                {story.popularity === "Low" && (
+                  <Text style={{ color: "#FF6347" }}>{`\u25BC`}</Text>
+                )}
+              </Text>
+            </View>
+          ))}
+        </View>
       </ScrollView>
       <View style={styles.buttonWrapper}>
-      <Text style={styles.categoryText}>ประเภท</Text>
+        <Text style={styles.categoryText}>ประเภท</Text>
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                    <CustomButton
+          <CustomButton
             title="โรแมนซ์แฟนตาซี"
             onPress={() =>
               navigation.navigate("RomanceFantasy", {
@@ -138,7 +172,7 @@ const styles = StyleSheet.create({
     color: "#000033",
     marginLeft: 8,
     marginBottom: 8,
-  }
+  },
 });
 
 function SearchStack() {

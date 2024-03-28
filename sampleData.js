@@ -257,3 +257,31 @@ export const sampleUsers = [
     ],
   },
 ];
+
+export const hotStorys = [
+  {
+    id: 1,
+    title: "1 Marry My Husband",
+    popularity: "High",
+  },
+  {
+    id: 2,
+    title: "2 ชิงชีวิตพลิกลิขิตชะตา",
+    popularity: "Low",
+  },
+  {
+    id: 3,
+    title: "3 บุตรสาวของดยุกปีศาจ",
+    popularity: "High",
+  },
+  {
+    id: 4,
+    title: "4 วันทองไร้ใจ",
+    popularity: "Low",
+  },
+  {
+    id: 5,
+    title: "5 นักฆ่าย้อนวัย",
+    popularity: "High",
+  },
+];
