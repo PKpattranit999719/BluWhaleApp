@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, ScrollView, Text, StyleSheet } from "react-native";
+import { View, TextInput, ScrollView, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import BookCategoryScreen from "./bookCategoryScreen";
 import BookDetailScreen from "./bookDetailScreen";
@@ -94,6 +94,22 @@ function SearchScreen({ navigation }) {
               </Text>
             </View>
           ))}
+          <View>
+          <Text style={{ marginTop: 20,fontSize: 20, fontWeight: "bold", color: "#FFFFFF" }}>
+            รายการแนะนำ
+          </Text>
+          </View>
+              <ScrollView horizontal style={styles.imageScrollView}>
+          {sampleBooks.map((book, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() => navigation.navigate("BookDetail", { book: book })}
+              style={styles.bookImageWrapper}
+            >
+              <Image source={book.image} style={styles.bookImage} />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
         </View>
       </ScrollView>
       <View style={styles.buttonWrapper}>
@@ -172,6 +188,21 @@ const styles = StyleSheet.create({
     color: "#000033",
     marginLeft: 8,
     marginBottom: 8,
+  },
+  imageScrollView: {
+    marginTop: 20,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+  },
+  bookImageWrapper: {
+    marginRight: 10,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  bookImage: {
+    width: 100,
+    height: 150,
+    resizeMode: "cover",
   },
 });
 
