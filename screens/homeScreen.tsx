@@ -17,9 +17,11 @@ const HomeScreen: React.FC = () => {
   const { loggedIn, username, login, register } = useAuth();
   const [loginModalVisible, setLoginModalVisible] = useState(false);
   const [registerModalVisible, setRegisterModalVisible] = useState(false);
+  const [currentDate, setCurrentDate] = useState("");
 
   useEffect(() => {
     checkLoginStatus();
+    setCurrentDate(new Date().toLocaleDateString());
   }, []);
 
   const checkLoginStatus = async () => {
@@ -90,6 +92,7 @@ const HomeScreen: React.FC = () => {
           <Text style={{ color: "white", fontSize: 20 }}>
             Welcome, {username}
           </Text>
+          <Text style={{ color: "white",fontSize: 20}}>{currentDate}</Text>
         </View>
       ) : (
         <View

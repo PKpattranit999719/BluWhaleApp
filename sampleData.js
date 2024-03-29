@@ -9,7 +9,8 @@ export const sampleBooks = [
       { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep1/viewer?title_no=4853&episode_no=1"},
       { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep2/viewer?title_no=4853&episode_no=2"},
       { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep3/viewer?title_no=4853&episode_no=3"}
-    ]
+    ],
+    popularity: "High"
   },
   { 
     title: "แด่ตัวละครโปรดที่ถูกทิ้ง", 
@@ -21,7 +22,8 @@ export const sampleBooks = [
       { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep1/viewer?title_no=4645&episode_no=1"},
       { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep2/viewer?title_no=4645&episode_no=2"},
       { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep3/viewer?title_no=4645&episode_no=3"}
-    ]
+    ],
+    popularity: "High"
   },
   { 
     title: "บุตรสาวของดยุกปีศาจ", 
@@ -33,7 +35,8 @@ export const sampleBooks = [
       { episodeNumber: 1,link: "https://www.webtoons.com/th/romantic-fantasy/monster-duke-daughter/ep1/viewer?title_no=3876&episode_no=1"},
       { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/monster-duke-daughter/ep2/viewer?title_no=3876&episode_no=2"},
       { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/monster-duke-daughter/ep3/viewer?title_no=3876&episode_no=3"}
-    ]
+    ],
+    popularity: "Low"
   },
 
   { 
@@ -255,33 +258,5 @@ export const sampleUsers = [
     birthdate: new Date(1980, 3, 10),
     books: [
     ],
-  },
-];
-
-export const hotStorys = [
-  {
-    id: 1,
-    title: "1 Marry My Husband",
-    popularity: "High",
-  },
-  {
-    id: 2,
-    title: "2 ชิงชีวิตพลิกลิขิตชะตา",
-    popularity: "Low",
-  },
-  {
-    id: 3,
-    title: "3 บุตรสาวของดยุกปีศาจ",
-    popularity: "High",
-  },
-  {
-    id: 4,
-    title: "4 วันทองไร้ใจ",
-    popularity: "Low",
-  },
-  {
-    id: 5,
-    title: "5 นักฆ่าย้อนวัย",
-    popularity: "High",
   },
 ];

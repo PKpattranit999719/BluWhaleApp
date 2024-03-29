@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import BookCategoryScreen from "./bookCategoryScreen";
 import BookDetailScreen from "./bookDetailScreen";
 import { sampleBooks } from "../sampleData";
-import { hotStorys } from "../sampleData";
 
 const Stack = createStackNavigator();
 
@@ -71,29 +70,29 @@ function SearchScreen({ navigation }) {
           <Text style={{ fontSize: 20, fontWeight: "bold", color: "#FFFFFF" }}>
             5 อันดับเรื่องที่มาแรง
           </Text>
-          {hotStorys.map((story, index) => (
-            <View key={index}>
-              <Text
-                onPress={() =>
-                  navigation.navigate("BookDetail", { book: story })
-                }
-                style={{
-                  padding: 10,
-                  borderBottomWidth: 1,
-                  borderColor: "#ccc",
-                  color: "#FFFFFF",
-                }}
-              >
-                {story.title} - {story.popularity}
-                {story.popularity === "High" && (
-                  <Text style={{ color: "#1E90FF" }}>{`\u25B2`}</Text>
-                )}
-                {story.popularity === "Low" && (
-                  <Text style={{ color: "#FF6347" }}>{`\u25BC`}</Text>
-                )}
-              </Text>
-            </View>
-          ))}
+          {sampleBooks.slice(0, 5).map((book, index) => (
+          <View key={index}>
+            <Text
+              onPress={() =>
+                navigation.navigate("BookDetail", { book: book })
+              }
+              style={{
+                padding: 10,
+                borderBottomWidth: 1,
+                borderColor: "#ccc",
+                color: "#FFFFFF",
+              }}
+            >
+              {index+1} {book.title} - {book.popularity}
+              {book.popularity === "High" && (
+                <Text style={{ color: "#1E90FF" }}>{`\u25B2`}</Text>
+              )}
+              {book.popularity === "Low" && (
+                <Text style={{ color: "#FF6347" }}>{`\u25BC`}</Text>
+              )}
+            </Text>
+          </View>
+        ))}
           <View>
           <Text style={{ marginTop: 20,fontSize: 20, fontWeight: "bold", color: "#FFFFFF" }}>
             รายการแนะนำ
@@ -176,7 +175,7 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 10,
-    backgroundColor: "#191970",
+    backgroundColor: "#2D466B",
     color: "#fff",
     textAlign: "center",
     borderRadius: 5,
