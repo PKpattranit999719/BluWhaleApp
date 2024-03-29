@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity, Text, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useAuth } from '../authContext'; // Import useAuth hook
+import { useAuth } from '../authContext'; 
 
 import HomeScreen from '../screens/homeScreen';
 import SearchScreen from '../screens/searchScreen';
@@ -15,7 +15,6 @@ export default function MyTabs() {
     const { loggedIn, logout } = useAuth();
 
     const handleLogout = async () => {
-        // Show alert for confirmation
         Alert.alert(
             'Logout',
             'Are you sure you want to log out?',

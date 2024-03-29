@@ -10,7 +10,8 @@ export const sampleBooks = [
       { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep2/viewer?title_no=4853&episode_no=2"},
       { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/im-the-queen-in-this-life/ep3/viewer?title_no=4853&episode_no=3"}
     ],
-    popularity: "High"
+    popularity: "High",
+    isUpdate: 1
   },
   { 
     title: "แด่ตัวละครโปรดที่ถูกทิ้ง", 
@@ -23,7 +24,8 @@ export const sampleBooks = [
       { episodeNumber: 2,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep2/viewer?title_no=4645&episode_no=2"},
       { episodeNumber: 3,link: "https://www.webtoons.com/th/romantic-fantasy/for-my-derelict-favorite/ep3/viewer?title_no=4645&episode_no=3"}
     ],
-    popularity: "High"
+    popularity: "High",
+    isUpdate: 1
   },
   { 
     title: "บุตรสาวของดยุกปีศาจ", 
@@ -61,7 +63,8 @@ export const sampleBooks = [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/romantic-fantasy/wanthong-rai-jai/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97-/viewer?title_no=3522&episode_no=1"},
       { episodeNumber: 2,link:"https://www.webtoons.com/th/romantic-fantasy/wanthong-rai-jai/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97-/viewer?title_no=3522&episode_no=2"},
       { episodeNumber: 3,link:"https://www.webtoons.com/th/romantic-fantasy/wanthong-rai-jai/%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97-/viewer?title_no=3522&episode_no=3"}
-    ]
+    ],
+    isNew: 1
   },
   { 
     title: "โรซาลิน โวการ์ต", 
@@ -73,7 +76,8 @@ export const sampleBooks = [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/romantic-fantasy/rosaline-vogart/prologue/viewer?title_no=5090&episode_no=1&ogTagImageUrl=%2F20230104_189%2F16728216938800Jgcs_JPEG%2F7Mobile_Detail_Banner__ee2929.jpg%3Ftype%3Dcrop540_540"},
       { episodeNumber: 2,link:"https://www.webtoons.com/th/romantic-fantasy/rosaline-vogart/ep1/viewer?title_no=5090&episode_no=2"},
       { episodeNumber: 3,link:"https://www.webtoons.com/th/romantic-fantasy/rosaline-vogart/ep2/viewer?title_no=5090&episode_no=3"}
-    ]
+    ],
+    isNew: 1
   },
 
   { 
@@ -86,7 +90,8 @@ export const sampleBooks = [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/drama/marry-my-husband/ep1/viewer?title_no=3987&episode_no=1"},
       { episodeNumber: 2,link:"https://www.webtoons.com/th/drama/marry-my-husband/ep2/viewer?title_no=3987&episode_no=2"},
       { episodeNumber: 3,link:"https://www.webtoons.com/th/drama/marry-my-husband/ep3/viewer?title_no=3987&episode_no=3"}
-    ]
+    ],
+    isNew: 1
   },
   { 
     title: "เดเดส จอมนางพลิกชะตา", 
@@ -98,7 +103,8 @@ export const sampleBooks = [
       { episodeNumber: 1,link:"https://www.webtoons.com/th/romantic-fantasy/dedes/ep1-%E0%B9%81%E0%B8%AD%E0%B8%A3%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%AA/viewer?title_no=4276&episode_no=1"},
       { episodeNumber: 2,link:"https://www.webtoons.com/th/romantic-fantasy/dedes/ep2-%E0%B8%82%E0%B8%B2%E0%B8%A1%E0%B8%A1%E0%B8%95/viewer?title_no=4276&episode_no=2"},
       { episodeNumber: 3,link:"https://www.webtoons.com/th/romantic-fantasy/dedes/ep3-%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%A8%E0%B8%A7%E0%B8%A3/viewer?title_no=4276&episode_no=3"}
-    ]
+    ],
+    isNew: 1
   },
   { 
     title: "การแต่งงานครั้งใหม่ของจักรพรรดินี", 

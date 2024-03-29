@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import BookCategoryScreen from "./bookCategoryScreen";
 import BookDetailScreen from "./bookDetailScreen";
 import { sampleBooks } from "../sampleData";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Stack = createStackNavigator();
 
@@ -106,6 +107,22 @@ function SearchScreen({ navigation }) {
               style={styles.bookImageWrapper}
             >
               <Image source={book.image} style={styles.bookImage} />
+              <View>
+                      {book.isUpdate === 1 && (
+                        <View
+                          style={[
+                            styles.updateBadge,
+                            { paddingLeft: 5, paddingRight: 5, marginTop: 10  },
+                          ]}
+                        >
+                          <Text style={styles.updateBadgeText}>
+                            {" "}
+                            Update{" "}
+                            <Icon name="arrow-up" size={12} color="white" />
+                          </Text>
+                        </View>
+                      )}
+                    </View>
             </TouchableOpacity>
           ))}
         </ScrollView>
@@ -202,6 +219,15 @@ const styles = StyleSheet.create({
     width: 100,
     height: 150,
     resizeMode: "cover",
+  },
+  updateBadge: {
+    backgroundColor: "#2E8B57",
+    borderRadius: 5,
+  },
+  updateBadgeText: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
   },
 });
 
