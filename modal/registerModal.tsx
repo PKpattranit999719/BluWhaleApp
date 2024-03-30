@@ -24,16 +24,32 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ visible, onClose }) => {
   const [birthdate, setBirthdate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 
-  const handleRegister = () => {
+const handleRegister = () => {
     if (!username || !email || !password || !birthdate) {
       alert("Please fill in all fields.");
       return;
     }
 
-    // Call the register function from the authentication context
-    register(username, email, birthdate, password);
+    const today = new Date();
+    let age = today.getFullYear() - birthdate.getFullYear();
+    const monthDiff = today.getMonth() - birthdate.getMonth();
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthdate.getDate())
+    ) {
+      age--;
+    }
 
-    // Close the modal
+    if (age < 10) {
+      alert("You must be at least 10 years old to register.");
+      return;
+    }
+
+    register(username, email, birthdate, password);
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setBirthdate(new Date());
     onClose();
   };
 
